@@ -37,12 +37,12 @@ public class Simulation implements GameObject{
 			it.Update(msElapsed);
 		}
 		for (ArrayList<LocatedEntity> it : locatedEntities_) {
-			HandleCollision(it);
+			HandleCollisions(it);
 		}
 		
 	}
 	
-	private void HandleCollision(ArrayList<LocatedEntity> locatedEntities) {
+	private void HandleCollisions(ArrayList<LocatedEntity> locatedEntities) {
 		for(int i =0; i < locatedEntities.size(); ++i)
 		{
 			for(int j =i+1; j < locatedEntities.size(); ++j)
@@ -59,14 +59,16 @@ public class Simulation implements GameObject{
 		}
 	}
 
-	public void AddMovingEntity(MovingEntity entity)
+	public void AddMovingEntity(MovingEntity entity, CollisionLayer layer)
 	{
 		movingEntities_.add(entity);
+		AddLocatedEntity(entity, layer);
 	}
 	
 	public void RemoveMovingEntity(MovingEntity entity)
 	{
 		movingEntities_.remove(entity);
+		RemoveLocatedEntity(entity);
 	}
 	
 	public void AddLocatedEntity(LocatedEntity entity, CollisionLayer layer)

@@ -26,10 +26,9 @@ public class SimulationTest {
 		DummyLocatedEntity c = new DummyLocatedEntity(2, 2, 1);
 
 		Simulation sim = new Simulation();
-		sim.AddLocatedEntity(ma, CollisionLayer.One);
 		sim.AddLocatedEntity(b, CollisionLayer.One);
 		sim.AddLocatedEntity(c, CollisionLayer.Two);
-		sim.AddMovingEntity(ma);
+		sim.AddMovingEntity(ma, CollisionLayer.One);
 		
 		sim.Update(0.5f);
 		assertFalse(b.visited);		

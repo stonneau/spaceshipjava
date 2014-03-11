@@ -12,7 +12,12 @@ import java.lang.Math;
  */
 public class Vector2 extends Point2D.Float {
 
-    /*
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/*
      * (non-Javadoc)
      * 
      * @see java.awt.geom.Point2D.Double#Point2D.Double()
