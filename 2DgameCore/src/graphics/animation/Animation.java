@@ -2,35 +2,18 @@
 
 import graphics.Rectangle;
 
-public class Animation implements AnimationInterface
+public class Animation
 {
-    protected int maxFrame_;
-    protected int currentFrame_;
-    protected int frames_;
-    private int x_;
-    private int y_;
+	public final int maxFrame_;
+	public final int x_;
+	public final int y_;
     // in milliseconds
-    protected int frameRate_;
-    private double currentFrameRate_;
+    public final int frameRate_;
+    
+	protected  int currentFrame_;
     protected Rectangle rectangle_;
-
-    //returns true whether the animation is achieved
-    protected void OnLastFrameReached()
-    {
-        //NOTHING
-    }
-
-    //returns true whether finalFrame is reached
-    protected Boolean SelectFrame()
-    {
-        currentFrame_ = currentFrame_ + 1;
-        if ( currentFrame_ >= maxFrame_ )
-        {
-            currentFrameRate_ = maxFrame_;
-            return true;
-        }
-        return false;
-    }
+    
+    private float currentFrameRate_;
 
     public Animation(int width, int height, int frames, int frameRate)
     {
@@ -54,6 +37,24 @@ public class Animation implements AnimationInterface
         rectangle_ = new Rectangle(x,y,width,height);
     }
 
+    //returns true whether the animation is achieved
+    protected void OnLastFrameReached()
+    {
+        //NOTHING
+    }
+
+    //returns true whether finalFrame is reached
+    protected Boolean SelectFrame()
+    {
+        currentFrame_ = currentFrame_ + 1;
+        if ( currentFrame_ >= maxFrame_ )
+        {
+            currentFrameRate_ = maxFrame_;
+            return true;
+        }
+        return false;
+    }
+    
     public void Reset()
     {
         currentFrame_ = 0;

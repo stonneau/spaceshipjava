@@ -2,8 +2,6 @@ package physics;
 
 import static org.junit.Assert.*;
 
-import javax.swing.text.StyledEditorKit.BoldAction;
-
 import math.Vector2;
 
 import org.junit.Test;
