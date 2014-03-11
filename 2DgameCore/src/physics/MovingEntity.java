@@ -1,4 +1,6 @@
 package physics;
+import javax.swing.text.Position;
+
 import math.Vector2;
 
 /**
@@ -7,7 +9,7 @@ import math.Vector2;
  * @author stonneau
  *
  */
-public class MovingEntity implements gameobject.GameObject {
+public class MovingEntity extends LocatedEntity implements gameobject.GameObject {
 
 	/**
 	 * Minimum Speed (in x and y ) reachable by the entity
@@ -37,14 +39,32 @@ public class MovingEntity implements gameobject.GameObject {
 	protected Vector2 currentAcceleration_;
 	
 	/**
-	 * 
+	 * a new movingEntity located at 0,0 
+	 * @param radius radius of the bounding sphere	
 	 * @param minSpeed Minimum Speed (in x and y ) reachable by the entity
 	 * @param maxSpeed Maximum Speed (in x and y ) reachable by the entity
 	 * @param minAcc Minimum Acceleration (in x and y ) reachable by the entity
 	 * @param maxAcc Maximum Acceleration (in x and y ) reachable by the entity
 	 */
-	public MovingEntity(Vector2 minSpeed, Vector2 maxSpeed, Vector2 minAcc, Vector2 maxAcc)
+	public MovingEntity(float radius, Vector2 minSpeed, Vector2 maxSpeed, Vector2 minAcc, Vector2 maxAcc)
 	{
+		super(0,0,radius);
+		this.minSpeed = minSpeed; this.maxSpeed = maxSpeed;
+		this.minAcc = minAcc; this.maxAcc = maxAcc;
+		currentSpeed_ = new Vector2(0,0); currentAcceleration_ = new Vector2(0,0);
+	}
+	
+	/**
+	 * @param position initial position	
+	 * @param radius radius of the bounding sphere	
+	 * @param minSpeed Minimum Speed (in x and y ) reachable by the entity
+	 * @param maxSpeed Maximum Speed (in x and y ) reachable by the entity
+	 * @param minAcc Minimum Acceleration (in x and y ) reachable by the entity
+	 * @param maxAcc Maximum Acceleration (in x and y ) reachable by the entity
+	 */
+	public MovingEntity(Vector2 position, float radius, Vector2 minSpeed, Vector2 maxSpeed, Vector2 minAcc, Vector2 maxAcc)
+	{
+		super(position.x, position.y, radius);
 		this.minSpeed = minSpeed; this.maxSpeed = maxSpeed;
 		this.minAcc = minAcc; this.maxAcc = maxAcc;
 		currentSpeed_ = new Vector2(0,0); currentAcceleration_ = new Vector2(0,0);
@@ -55,6 +75,7 @@ public class MovingEntity implements gameobject.GameObject {
 		// TODO Auto-generated method stub
 		currentSpeed_ = currentSpeed_.plus(currentAcceleration_.scalarMult(msElapsed));
 		currentSpeed_.bound(minSpeed, maxSpeed);
+		this.shape.position = this.shape.position.plus(currentSpeed_.scalarMult(msElapsed));
 	}	
 
 	/**
@@ -84,6 +105,12 @@ public class MovingEntity implements gameobject.GameObject {
 		// TODO Auto-generated method stub
 		currentSpeed_ = new Vector2(0,0);
 		currentAcceleration_ = new Vector2(0,0);
+	}
+
+	@Override
+	public void OnCollision(LocatedEntity other) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

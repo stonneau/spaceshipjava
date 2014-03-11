@@ -1,10 +1,10 @@
-package collision;
+package physics.collision;
 
-import collision.shapes.Sphere2D;
+import physics.collision.shapes.Sphere2D;
 
 /**
  * Class performing collision checking
- * between avaiable Shapes (as of today : Sphere2D)
+ * between available Shapes (as of today : Sphere2D)
  * @author stonneau
  *
  */
@@ -23,10 +23,10 @@ public class Checker {
 	 * @param b another Sphere2D
 	 * @return whether or not a and b are colliding
 	 */
-	Boolean IsColliding(Sphere2D a, Sphere2D b)
+	public Boolean IsColliding(Sphere2D a, Sphere2D b)
 	{
-		double xDif = a.X() - b.X();
-		double yDif = a.Y() - b.Y();
+		double xDif = a.position.x - b.position.x;
+		double yDif = a.position.y - b.position.y;
 		double distanceSquared = xDif * xDif + yDif * yDif;
 		return distanceSquared < (a.r + b.r) * (a.r + b.r);
 	}

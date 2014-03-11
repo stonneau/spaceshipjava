@@ -14,7 +14,7 @@ public class MovingEntityTest {
 		Vector2 maxSpeed = new Vector2(1f, 0.5f);
 		Vector2 minAcc = new Vector2(-1f, -1f);
 		Vector2 maxAcc = new Vector2(1f, 0.5f);
-		MovingEntity entity = new MovingEntity(minSpeed, maxSpeed, minAcc, maxAcc);
+		MovingEntity entity = new MovingEntity(1, minSpeed, maxSpeed, minAcc, maxAcc);
 		/*boundary checks*/
 		entity.Accelerate(new Vector2(10f,10f));
 		entity.Update(1);
