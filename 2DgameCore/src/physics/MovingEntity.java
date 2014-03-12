@@ -69,7 +69,7 @@ public class MovingEntity extends LocatedEntity implements gameobject.GameObject
 	}
 	
 	@Override
-	public void Update(float msElapsed) {
+	public void update(float msElapsed) {
 		// TODO Auto-generated method stub
 		currentSpeed_ = currentSpeed_.plus(currentAcceleration_.scalarMult(msElapsed));
 		currentSpeed_.bound(minSpeed, maxSpeed);
@@ -80,7 +80,7 @@ public class MovingEntity extends LocatedEntity implements gameobject.GameObject
 	 * Increments the current acceleration by delta, while respecting boundaries
 	 * @param delta
 	 */
-	public void Accelerate(Vector2 delta) {
+	public void accelerate(Vector2 delta) {
 		// TODO Auto-generated method stub
 		currentAcceleration_ = currentAcceleration_.plus(delta);
 		currentAcceleration_.bound(minAcc, maxAcc);
@@ -90,7 +90,7 @@ public class MovingEntity extends LocatedEntity implements gameobject.GameObject
 	 * Sets the current acceleration to a given, while respecting boundaries
 	 * @param acceleration the new value for the current acceleration
 	 */
-	public void SetAcceleration(Vector2 acceleration) {
+	public void setAcceleration(Vector2 acceleration) {
 		// TODO Auto-generated method stub
 		currentAcceleration_ = acceleration;
 		currentAcceleration_.bound(minAcc, maxAcc);
@@ -99,14 +99,14 @@ public class MovingEntity extends LocatedEntity implements gameobject.GameObject
 	/**
 	 * Sets current acceleration and speed to 0.
 	 */
-	public void Stop() {
+	public void stop() {
 		// TODO Auto-generated method stub
 		currentSpeed_ = new Vector2(0,0);
 		currentAcceleration_ = new Vector2(0,0);
 	}
 
 	@Override
-	public void OnCollision(LocatedEntity other) {
+	public void onCollision(LocatedEntity other) {
 		// TODO Auto-generated method stub
 		
 	}

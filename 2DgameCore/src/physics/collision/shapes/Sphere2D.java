@@ -28,7 +28,7 @@ public class Sphere2D extends Shape2D {
 	}
 	
 	@Override
-	public Rectangle2D BoundingBox()
+	public Rectangle2D boundingBox()
 	{
 		return new Rectangle2D(position.x, position.y, r, r);
 	}

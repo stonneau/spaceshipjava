@@ -31,5 +31,5 @@ public abstract class LocatedEntity{
 		this.mass = mass;
 	}
 	
-	public abstract void OnCollision(LocatedEntity other);
+	public abstract void onCollision(LocatedEntity other);
 }

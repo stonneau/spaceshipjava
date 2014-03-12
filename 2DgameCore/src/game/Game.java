@@ -1,5 +1,6 @@
 package game;
 
+import input.InputHandler;
 import physics.Simulation;
 import graphics.Gui;
 
@@ -13,27 +14,27 @@ import graphics.Gui;
 public class Game {
 	protected Gui gui_;
 	protected Simulation simulation_;
-	protected input.Input input_;
+	protected InputHandler input_;
 
 	private Boolean gameRunning_;
 	final int TARGET_FPS = 60;
 	final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;  
 	
-	public Game(Gui gui,Simulation simulation, input.Input input)
+	public Game(Gui gui,Simulation simulation, InputHandler inputHandler)
 	{
 		gameRunning_ = false;
 		gui_ = gui;
 		simulation_ = simulation;
-		input_ = input;
+		input_ = inputHandler;
 	}
 	
-	public void Start()
+	public void start()
 	{
 		gameRunning_ = true;
-		GameLoop();
+		gameLoop();
 	}
 	
-	void GameLoop()
+	void gameLoop()
 	{
 	   long lastLoopTime = System.nanoTime(); 
 	
@@ -49,9 +50,8 @@ public class Game {
 		   float delta =(float)(updateLength / ((double)OPTIMAL_TIME));
 	
 	   	  //retrieve input data
-	      input_.Update(delta);
 	      // update the game logic
-	      simulation_.Update(delta);
+	      simulation_.update(delta);
 	      // draw everything
 		  gui_.Draw(delta);
 	      

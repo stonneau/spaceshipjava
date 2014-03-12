@@ -16,13 +16,13 @@ public class TextureFactory {
 		loaded_ = new ArrayList<String>();
 	}
 	
-	public static TextureFactory GetInstance()
+	public static TextureFactory getInstance()
 	{
 		if(instance_ == null) instance_ = new TextureFactory();
 		return instance_;
 	}
 	
-	public int LoadTexture(String filename) throws Exception
+	public int loadTexture(String filename) throws Exception
 	{
 		if(!loaded_.contains(filename))
 		{
@@ -37,7 +37,7 @@ public class TextureFactory {
 		}
 	}
 	
-	public Texture GetTexture(int index) throws Exception
+	public Texture getTexture(int index) throws Exception
 	{
 		if(index >= textures_.size()) throw new Exception("unknown texture index");
 		return textures_.get(index);

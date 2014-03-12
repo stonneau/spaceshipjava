@@ -21,36 +21,36 @@ public class FSMTest {
 		Transition ab = new Transition(input0, b);
 		Transition ac = new Transition(input1, c);
 		Transition ba = new Transition(input2, a);
-		a.AddTransition(ac);
-		a.AddTransition(ab);
-		b.AddTransition(ba);
+		a.addTransition(ac);
+		a.addTransition(ab);
+		b.addTransition(ba);
 		logic.fsm.FSM fsm = new logic.fsm.FSM(a);
 		assertFalse(a.entered);
 		
-		fsm.Update();
+		fsm.update();
 		assertFalse(a.exited);
-		fsm.PushInput(new Input(0));
-		fsm.Update();
+		fsm.pushInput(new Input(0));
+		fsm.update();
 		assertTrue(a.exited);
 		assertTrue(b.entered);
 		
 
-		fsm.PushInput(new Input(1));
-		fsm.Update();
+		fsm.pushInput(new Input(1));
+		fsm.update();
 		assertFalse(a.entered);
 		assertFalse(b.exited);
 
-		fsm.PushInput(new Input(2));
-		fsm.Update();
+		fsm.pushInput(new Input(2));
+		fsm.update();
 		assertTrue(a.entered);
 		assertTrue(b.exited);
 		
 
-		fsm.Update();
+		fsm.update();
 		assertFalse(c.entered);
 		
-		fsm.PushInput(new Input(1));
-		fsm.Update();
+		fsm.pushInput(new Input(1));
+		fsm.update();
 		assertTrue(c.entered);
 	}
 

@@ -25,7 +25,7 @@ public class Checker {
 	 * @param b another Sphere2D
 	 * @return whether or not a and b are colliding
 	 */
-	public Boolean IsColliding(Sphere2D a, Sphere2D b)
+	public Boolean isColliding(Sphere2D a, Sphere2D b)
 	{
 		double xDif = a.position.x - b.position.x;
 		double yDif = a.position.y - b.position.y;
@@ -39,7 +39,7 @@ public class Checker {
 	 * @param b another Rectangle2D
 	 * @return whether or not a and b are colliding
 	 */
-	public Boolean IsColliding(Rectangle2D rectA, Rectangle2D rectB)
+	public Boolean isColliding(Rectangle2D rectA, Rectangle2D rectB)
 	{
 		return (rectA.x1() < rectB.x2() && rectA.x2() > rectB.x1() &&
 			    rectA.y1() < rectB.y2() && rectA.y2() > rectB.y1());
@@ -51,7 +51,7 @@ public class Checker {
 	 * @param circle a Sphere2D
 	 * @return whether or not a and b are colliding
 	 */
-	public Boolean IsColliding(Rectangle2D rect, Sphere2D circle)
+	public Boolean isColliding(Rectangle2D rect, Sphere2D circle)
 	{
 	    float distanceX = Math.abs(circle.position.x - rect.position.x);
 	    float distanceY = Math.abs(circle.position.y - rect.position.y);
@@ -74,8 +74,8 @@ public class Checker {
 	 * @param rect a Rectangle2D
 	 * @return whether or not a and b are colliding
 	 */
-	public Boolean IsColliding(Sphere2D circle, Rectangle2D rect)
+	public Boolean isColliding(Sphere2D circle, Rectangle2D rect)
 	{
-	   return IsColliding(rect, circle);
+	   return isColliding(rect, circle);
 	}
 }

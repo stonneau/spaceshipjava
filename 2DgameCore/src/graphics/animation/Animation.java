@@ -63,13 +63,13 @@ public class Animation
     }
 
     //returns true whether the animation is achieved
-    protected void OnLastFrameReached()
+    protected void onLastFrameReached()
     {
         //NOTHING
     }
 
     //returns true whether finalFrame is reached
-    protected Boolean SelectFrame()
+    protected Boolean selectFrame()
     {
         currentFrame_ = currentFrame_ + 1;
         if ( currentFrame_ >= maxFrame )
@@ -80,20 +80,20 @@ public class Animation
         return false;
     }
     
-    public void Reset()
+    public void reset()
     {
         currentFrame_ = 0;
     }
 
-    public Boolean Update(float msElapsed)
+    public Boolean update(float msElapsed)
     {
         currentFrameRate_ = currentFrameRate_ + msElapsed;
         if (currentFrameRate_ > frameRate)
         {
             currentFrameRate_ = currentFrameRate_ - frameRate;          
-            if (SelectFrame())
+            if (selectFrame())
             {
-                OnLastFrameReached();
+                onLastFrameReached();
                 return true;
             }
             rectangle_.x = x + rectangle_.width * currentFrame_;
@@ -102,7 +102,7 @@ public class Animation
         return false;
     }
 
-    public Rectangle GetRectangleToDraw()
+    public Rectangle getRectangleToDraw()
     {
         return rectangle_;
     }

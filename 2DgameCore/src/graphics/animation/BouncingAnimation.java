@@ -17,7 +17,7 @@ public class BouncingAnimation extends Animation
         delta = 1;
     }
 
-    protected Boolean SelectFrame()
+    protected Boolean selectFrame()
     {
         currentFrame_ = currentFrame_ + delta;
         if ( first )
@@ -31,7 +31,7 @@ public class BouncingAnimation extends Animation
         return false;
     }
 
-    protected void OnLastFrameReached()
+    protected void onLastFrameReached()
     {
         delta = delta * -1;
     }

@@ -31,18 +31,18 @@ public class Simulation implements GameObject{
 	}
 		
 	@Override
-	public void Update(float msElapsed) {
+	public void update(float msElapsed) {
 		// TODO Auto-generated method stub
 		for (MovingEntity it : movingEntities_) {
-			it.Update(msElapsed);
+			it.update(msElapsed);
 		}
 		for (ArrayList<LocatedEntity> it : locatedEntities_) {
-			HandleCollisions(it);
+			handleCollisions(it);
 		}
 		
 	}
 	
-	private void HandleCollisions(ArrayList<LocatedEntity> locatedEntities) {
+	private void handleCollisions(ArrayList<LocatedEntity> locatedEntities) {
 		for(int i =0; i < locatedEntities.size(); ++i)
 		{
 			for(int j =i+1; j < locatedEntities.size(); ++j)
@@ -50,40 +50,40 @@ public class Simulation implements GameObject{
 				LocatedEntity it, it2;
 				it = locatedEntities.get(i);
 				it2 = locatedEntities.get(j);
-				if(checker.IsColliding(it.shape, it2.shape))
+				if(checker.isColliding(it.shape, it2.shape))
 				{
-					it.OnCollision(it2);
-					it2.OnCollision(it);
+					it.onCollision(it2);
+					it2.onCollision(it);
 				}
 			}
 		}
 	}
 
-	public void AddMovingEntity(MovingEntity entity, Layer layer)
+	public void addMovingEntity(MovingEntity entity, Layer layer)
 	{
 		movingEntities_.add(entity);
-		AddLocatedEntity(entity, layer);
+		addLocatedEntity(entity, layer);
 	}
 	
-	public void RemoveMovingEntity(MovingEntity entity)
+	public void removeMovingEntity(MovingEntity entity)
 	{
 		movingEntities_.remove(entity);
-		RemoveLocatedEntity(entity);
+		removeLocatedEntity(entity);
 	}
 	
-	public void AddLocatedEntity(LocatedEntity entity, Layer layer)
+	public void addLocatedEntity(LocatedEntity entity, Layer layer)
 	{
 		locatedEntities_.get(layer.getValue()).add(entity);
 	}
 	
-	public void RemoveLocatedEntity(LocatedEntity entity)
+	public void removeLocatedEntity(LocatedEntity entity)
 	{
 		for (ArrayList<LocatedEntity> it : locatedEntities_) {
 			it.remove(entity);
 		}
 	}
 	
-	public void RemoveLocatedEntity(LocatedEntity entity, Layer layer)
+	public void removeLocatedEntity(LocatedEntity entity, Layer layer)
 	{
 		locatedEntities_.get(layer.getValue()).remove(entity);
 	}

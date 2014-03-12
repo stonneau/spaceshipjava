@@ -9,7 +9,7 @@ public class Input
         this.type = type;
     }
 
-    public Boolean Equals(Input input)
+    public Boolean equals(Input input)
     {
         return type == input.type;
     }

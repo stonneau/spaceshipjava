@@ -20,11 +20,11 @@ public class Transition
         this.to = to;
     }
 
-    private Boolean IsValid(Input input)
+    private Boolean isValid(Input input)
     {
         for (Input myInput : inputs_)
         {
-            if (myInput.Equals(input))
+            if (myInput.equals(input))
             {
                 return true;
             }
@@ -32,11 +32,11 @@ public class Transition
         return false;
     }
 
-    public Input GetAcceptedInput(ArrayList<Input> inputs)
+    public Input getAcceptedInput(ArrayList<Input> inputs)
     {
     	for (Input input : inputs)
         {
-            if (IsValid(input))
+            if (isValid(input))
             {
                 return input;
             }

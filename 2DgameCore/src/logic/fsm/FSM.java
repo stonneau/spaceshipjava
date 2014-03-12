@@ -14,15 +14,15 @@ public class FSM{
         currentState_ = currentState;
     }
 
-    public void PushInput(Input input)
+    public void pushInput(Input input)
     {
         currentInputs_.add(input);
     }
 
-    public Boolean Update()
+    public Boolean update()
     {
         State old = currentState_;
-        currentState_ = currentState_.Update(currentInputs_);
+        currentState_ = currentState_.update(currentInputs_);
         currentInputs_.clear();
         return old == currentState_;
     }

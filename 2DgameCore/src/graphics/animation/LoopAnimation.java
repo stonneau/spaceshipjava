@@ -13,9 +13,9 @@ public class LoopAnimation extends Animation
         super(x, y, width, height, frames, frameRate);
     }
 
-    protected Boolean SelectFrame()
+    protected Boolean selectFrame()
     {
-        super.SelectFrame();
+        super.selectFrame();
         if ( currentFrame_ >= maxFrame)
         {
             currentFrame_ = 0;

@@ -18,21 +18,21 @@ public class SimulationTest {
 		Vector2 minAcc = new Vector2(-1f, -1f);
 		Vector2 maxAcc = new Vector2(1f, 0.5f);
 		MovingEntity ma = new MovingEntity(new Vector2(0,0),1, minSpeed, maxSpeed, minAcc, maxAcc);
-		ma.SetAcceleration(new Vector2(1f,0.5f));
+		ma.setAcceleration(new Vector2(1f,0.5f));
 
 		DummyLocatedEntity b = new DummyLocatedEntity(2, 2, 1);
 		DummyLocatedEntity c = new DummyLocatedEntity(2, 2, 1);
 
 		Simulation sim = new Simulation();
-		sim.AddLocatedEntity(b, Layer.Three);
-		sim.AddLocatedEntity(c, Layer.Two);
-		sim.AddMovingEntity(ma, Layer.Three);
+		sim.addLocatedEntity(b, Layer.Three);
+		sim.addLocatedEntity(c, Layer.Two);
+		sim.addMovingEntity(ma, Layer.Three);
 		
-		sim.Update(0.5f);
+		sim.update(0.5f);
 		assertFalse(b.visited);		
 		assertFalse(c.visited);		
 			
-		sim.Update(0.75f);
+		sim.update(0.75f);
 		assertTrue(b.visited);		
 		assertFalse(c.visited);
 	}

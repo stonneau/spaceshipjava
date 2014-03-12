@@ -30,16 +30,16 @@ public class CheckerTest {
 		Rectangle2D h = new Rectangle2D(1.f, 1.f, 0.6f, 0.6f);
 		
 		Checker check = new physics.collision.Checker();
-		assertTrue(check.IsColliding(a, b));
-		assertTrue(check.IsColliding(c, b));
-		assertFalse(check.IsColliding(a, c));	
+		assertTrue(check.isColliding(a, b));
+		assertTrue(check.isColliding(c, b));
+		assertFalse(check.isColliding(a, c));	
 
-		assertTrue(check.IsColliding(e, d));
-		assertFalse(check.IsColliding(e, g));
+		assertTrue(check.isColliding(e, d));
+		assertFalse(check.isColliding(e, g));
 		
-		assertTrue(check.IsColliding(d, a));
-		assertFalse(check.IsColliding(a, f));
-		assertTrue(check.IsColliding(a, h));
+		assertTrue(check.isColliding(d, a));
+		assertFalse(check.isColliding(a, f));
+		assertTrue(check.isColliding(a, h));
 	}
 
 }

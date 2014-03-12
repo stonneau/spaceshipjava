@@ -11,7 +11,7 @@ public class DummyLocatedEntity extends LocatedEntity
 	}
 	
 	@Override
-	public void OnCollision(LocatedEntity other) {
+	public void onCollision(LocatedEntity other) {
 		visited = true;		
 	}
 	

@@ -10,5 +10,5 @@ public interface GameObject {
 	 * @param msElapsed number of ms elapsed since the
 	 * last call
 	 */
-	public void Update(float msElapsed);
+	public void update(float msElapsed);
 }

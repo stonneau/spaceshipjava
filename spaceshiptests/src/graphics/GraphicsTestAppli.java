@@ -27,9 +27,9 @@ public class GraphicsTestAppli extends JPanel
 	public GraphicsTestAppli()
 	{
 		super();
-		TextureFactory factory = TextureFactory.GetInstance();
+		TextureFactory factory = TextureFactory.getInstance();
 		try {
-			texture_ = factory.GetTexture(factory.LoadTexture("content/ChuChu_walk_east.png"));
+			texture_ = factory.getTexture(factory.loadTexture("content/ChuChu_walk_east.png"));
 			animation_ = new LoopAnimation(16, 16, 4, 500);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -42,29 +42,29 @@ public class GraphicsTestAppli extends JPanel
 	   // Draw our Image object.
 	   g.drawImage(texture_.image,50,10, this); // at location 50,10
 	   g.drawImage(texture_.image,50,10, this); // at location 50,10
-	   Rectangle rect = animation_.GetRectangleToDraw();
+	   Rectangle rect = animation_.getRectangleToDraw();
 	   int delta = 50;
 	   g.drawImage(texture_.image, delta, delta, delta + rect.width, delta + rect.height, rect.x, rect.y,
 			   rect.x + rect.width, rect.y + rect.height, this);
 	   
-	   animation_.Update(500);
+	   animation_.update(500);
 	   delta = 75;
 	   g.drawImage(texture_.image, delta, delta, delta + rect.width, delta + rect.height, rect.x, rect.y,
 			   rect.x + rect.width, rect.y + rect.height, this);
 	     // 200 wide and high
 	   
-	   animation_.Update(500);
+	   animation_.update(500);
 	   delta = 100;
 	   g.drawImage(texture_.image, delta, delta, delta + rect.width, delta + rect.height, rect.x, rect.y,
 			   rect.x + rect.width, rect.y + rect.height, this);
 	   
 
-	   animation_.Update(500);
+	   animation_.update(500);
 	   delta = 125;
 	   g.drawImage(texture_.image, delta, delta, delta + rect.width, delta + rect.height, rect.x, rect.y,
 			   rect.x + rect.width, rect.y + rect.height, this);
 	   
-	   animation_.Update(500);
+	   animation_.update(500);
 	   delta = 150;
 	   g.drawImage(texture_.image, delta, delta, delta + rect.width, delta + rect.height, rect.x, rect.y,
 			   rect.x + rect.width, rect.y + rect.height, this);

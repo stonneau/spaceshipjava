@@ -17,5 +17,5 @@ public abstract class Shape2D {
 	 * 
 	 * @return
 	 */
-	public abstract Rectangle2D BoundingBox();
+	public abstract Rectangle2D boundingBox();
 }

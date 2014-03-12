@@ -25,16 +25,16 @@ public class State
         transitions_ = transitions;
     }
 
-    public void AddTransition(Transition transition)
+    public void addTransition(Transition transition)
     {
         transitions_.add(transition);
     }
 
-    public State Update(ArrayList<Input> inputs)
+    public State update(ArrayList<Input> inputs)
     {
         for (Transition transition : transitions_)
         {
-            Input input = transition.GetAcceptedInput(inputs);
+            Input input = transition.getAcceptedInput(inputs);
             if ( input != null )
             {
                 State next = transition.to;
@@ -46,9 +46,9 @@ public class State
         return this;
     }
 
-    public State Update(float ms, ArrayList<Input> inputs)
+    public State update(float ms, ArrayList<Input> inputs)
     {
-        return this.Update(inputs);
+        return this.update(inputs);
     }
 
     public void OnEntering(State oldState, Input input){};
