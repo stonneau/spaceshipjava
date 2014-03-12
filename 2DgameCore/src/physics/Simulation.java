@@ -18,7 +18,7 @@ public class Simulation implements GameObject{
 	public final Checker checker;
 	private ArrayList<MovingEntity> movingEntities_;
 	private ArrayList<ArrayList<LocatedEntity> > locatedEntities_;
-	
+
 	public Simulation()
 	{
 		checker = new Checker();
@@ -29,7 +29,7 @@ public class Simulation implements GameObject{
 			locatedEntities_.add(new ArrayList<LocatedEntity>());
 		}
 	}
-		
+
 	@Override
 	public void update(float msElapsed) {
 		// TODO Auto-generated method stub
@@ -39,33 +39,33 @@ public class Simulation implements GameObject{
 		for (ArrayList<LocatedEntity> it : locatedEntities_) {
 			handleCollisions(it);
 		}
-		
+
 	}
-	
+
 	public void addMovingEntity(MovingEntity entity, Layer layer)
 	{
 		movingEntities_.add(entity);
 		addLocatedEntity(entity, layer);
 	}
-	
+
 	public void removeMovingEntity(MovingEntity entity)
 	{
 		movingEntities_.remove(entity);
 		removeLocatedEntity(entity);
 	}
-	
+
 	public void addLocatedEntity(LocatedEntity entity, Layer layer)
 	{
 		locatedEntities_.get(layer.getValue()).add(entity);
 	}
-	
+
 	public void removeLocatedEntity(LocatedEntity entity)
 	{
 		for (ArrayList<LocatedEntity> it : locatedEntities_) {
 			it.remove(entity);
 		}
 	}
-	
+
 	public void removeLocatedEntity(LocatedEntity entity, Layer layer)
 	{
 		locatedEntities_.get(layer.getValue()).remove(entity);

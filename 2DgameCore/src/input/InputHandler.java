@@ -15,7 +15,7 @@ import java.util.ArrayList;
  *
  */
 public class InputHandler implements KeyListener, GameObject{
-	
+
 	public class CharacterTime
 	{
 		public Character character;
@@ -30,28 +30,31 @@ public class InputHandler implements KeyListener, GameObject{
 	private InputState state_;
 	private InputState nextState_;
 	private ArrayList<Controller> controllers_;
-	
+
 	public InputHandler()
 	{
 		nextState_ = new InputState();
 		state_ = new InputState();
 		controllers_ = new ArrayList<Controller>();
 	}
-			
-    public void keyPressed(KeyEvent event)
-    {
-    	nextState_.pressed.add(new CharacterTime(event.getKeyChar()));
-    }
 
-    public void keyTyped(KeyEvent event)
-    {
-    	nextState_.typed.add(event.getKeyChar());
-    }
+	@Override
+	public void keyPressed(KeyEvent event)
+	{
+		nextState_.pressed.add(new CharacterTime(event.getKeyChar()));
+	}
 
-    public void keyReleased(KeyEvent event)
-    {
-    	nextState_.pressed.add(new CharacterTime(event.getKeyChar()));
-    }
+	@Override
+	public void keyTyped(KeyEvent event)
+	{
+		nextState_.typed.add(event.getKeyChar());
+	}
+
+	@Override
+	public void keyReleased(KeyEvent event)
+	{
+		nextState_.pressed.add(new CharacterTime(event.getKeyChar()));
+	}
 
 	@Override
 	public void update(float msElapsed) {
@@ -79,17 +82,17 @@ public class InputHandler implements KeyListener, GameObject{
 			controller.update(state_);
 		}
 	}
-	
+
 	public InputState getState()
 	{
 		return state_;
 	}
-	
+
 	public void addController(Controller controller)
 	{
 		controllers_.add(controller);
 	}
-	
+
 	public void removeController(Controller controller)
 	{
 		controllers_.remove(controller);

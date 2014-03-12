@@ -12,16 +12,16 @@ public class InputState
 		released = new ArrayList<CharacterTime>();
 		typed    = new ArrayList<Character>();
 	}
-	
+
 	public void clear()
 	{
 		pressed.clear();
 		released.clear();
 		typed.clear();			
 	}
-	
+
 	public ArrayList<CharacterTime> pressed;
 	public ArrayList<CharacterTime> released;
 	public ArrayList<Character> typed;
-	
+
 }

@@ -12,7 +12,7 @@ public abstract class Shape2D {
 	{
 		position = new Vector2(x,y);
 	}
-	
+
 	/**
 	 * 
 	 * @return

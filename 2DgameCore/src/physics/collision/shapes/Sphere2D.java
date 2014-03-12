@@ -12,8 +12,8 @@ public class Sphere2D extends Shape2D {
 	 */
 	public final float r;
 	public final float r2;
-	
-	
+
+
 	/**
 	 * Constructor for the 2d sphere
 	 * @param x abscissa position of the center
@@ -26,7 +26,7 @@ public class Sphere2D extends Shape2D {
 		this.r = r;
 		r2 = r * r;
 	}
-	
+
 	@Override
 	public Rectangle2D boundingBox()
 	{

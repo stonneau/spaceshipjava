@@ -25,7 +25,7 @@ public class MovingEntity extends LocatedEntity implements gameobject.GameObject
 	 * Maximum Acceleration (in x and y ) reachable by the entity
 	 */
 	public final Vector2 maxAcc;
-	
+
 	/**
 	 * current speed value
 	 */
@@ -35,7 +35,7 @@ public class MovingEntity extends LocatedEntity implements gameobject.GameObject
 	 * current acceleration value
 	 */
 	protected Vector2 currentAcceleration_;
-	
+
 	/**
 	 * a new movingEntity located at 0,0 
 	 * @param radius radius of the bounding sphere	
@@ -51,7 +51,7 @@ public class MovingEntity extends LocatedEntity implements gameobject.GameObject
 		this.minAcc = minAcc; this.maxAcc = maxAcc;
 		currentSpeed_ = new Vector2(0,0); currentAcceleration_ = new Vector2(0,0);
 	}
-	
+
 	/**
 	 * @param position initial position	
 	 * @param radius radius of the bounding sphere	
@@ -67,7 +67,7 @@ public class MovingEntity extends LocatedEntity implements gameobject.GameObject
 		this.minAcc = minAcc; this.maxAcc = maxAcc;
 		currentSpeed_ = new Vector2(0,0); currentAcceleration_ = new Vector2(0,0);
 	}
-	
+
 	@Override
 	public void update(float msElapsed) {
 		// TODO Auto-generated method stub
@@ -85,7 +85,7 @@ public class MovingEntity extends LocatedEntity implements gameobject.GameObject
 		currentAcceleration_ = currentAcceleration_.plus(delta);
 		currentAcceleration_.bound(minAcc, maxAcc);
 	}
-	
+
 	/**
 	 * Sets the current acceleration to a given, while respecting boundaries
 	 * @param acceleration the new value for the current acceleration
@@ -95,7 +95,7 @@ public class MovingEntity extends LocatedEntity implements gameobject.GameObject
 		currentAcceleration_ = acceleration;
 		currentAcceleration_.bound(minAcc, maxAcc);
 	}
-	
+
 	/**
 	 * Sets current acceleration and speed to 0.
 	 */
@@ -108,7 +108,7 @@ public class MovingEntity extends LocatedEntity implements gameobject.GameObject
 	@Override
 	public void onCollision(LocatedEntity other) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 }

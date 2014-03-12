@@ -19,7 +19,7 @@ public class Rectangle2D extends Shape2D {
 	public Rectangle2D boundingBox() {
 		return this;
 	}
-	
+
 	public float x1()
 	{
 		return position.x - widthhalf;

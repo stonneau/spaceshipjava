@@ -19,11 +19,11 @@ public class Controller {
 		void onKeyReleased(Integer value, float timePressed);
 		void onKeyTyped(Integer value);
 	}
-	
+
 	public final HashMap<Character, Integer> values;	
 	private InputState currentState_;
 	private ArrayList<ControllerListener> listeners_;
-	
+
 	public Controller(HashMap<Character, Integer> values)
 	{
 		this.values = values;
@@ -65,12 +65,12 @@ public class Controller {
 	public InputState getCurrentState() {
 		return currentState_;
 	}
-	
+
 	public void addControllerListener(ControllerListener listener)
 	{
 		listeners_.add(listener);
 	}
-	
+
 	public void removeControllerListener(ControllerListener listener)
 	{
 		listeners_.remove(listener);
