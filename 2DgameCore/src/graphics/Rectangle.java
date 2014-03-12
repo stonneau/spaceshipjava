@@ -6,8 +6,10 @@ public class Rectangle {
 	public final int width;
 	public final int height;
 
-	public Rectangle(int x, int y, int width, int height)
-	{
-		this.x=x; this.y=y; this.width = width; this.height=height;
+	public Rectangle(int x, int y, int width, int height) {
+		this.x = x;
+		this.y = y;
+		this.width = width;
+		this.height = height;
 	}
 }

@@ -7,25 +7,22 @@ import physics.collision.Checker;
 import game.Layer;
 import gameobject.GameObject;
 
-
 /**
- * Main class for physics package
- * updates all the moving entities
+ * Main class for physics package updates all the moving entities
+ * 
  * @author stonneau
- *
+ * 
  */
-public class Simulation implements GameObject{
+public class Simulation implements GameObject {
 	public final Checker checker;
 	private ArrayList<MovingEntity> movingEntities_;
-	private ArrayList<ArrayList<LocatedEntity> > locatedEntities_;
+	private ArrayList<ArrayList<LocatedEntity>> locatedEntities_;
 
-	public Simulation()
-	{
+	public Simulation() {
 		checker = new Checker();
 		movingEntities_ = new ArrayList<MovingEntity>();
-		locatedEntities_ = new ArrayList<ArrayList<LocatedEntity> >();
-		for(int i = 0; i < Layer.None.getValue(); ++i)
-		{
+		locatedEntities_ = new ArrayList<ArrayList<LocatedEntity>>();
+		for (int i = 0; i < Layer.None.getValue(); ++i) {
 			locatedEntities_.add(new ArrayList<LocatedEntity>());
 		}
 	}
@@ -42,45 +39,37 @@ public class Simulation implements GameObject{
 
 	}
 
-	public void addMovingEntity(MovingEntity entity, Layer layer)
-	{
+	public void addMovingEntity(MovingEntity entity, Layer layer) {
 		movingEntities_.add(entity);
 		addLocatedEntity(entity, layer);
 	}
 
-	public void removeMovingEntity(MovingEntity entity)
-	{
+	public void removeMovingEntity(MovingEntity entity) {
 		movingEntities_.remove(entity);
 		removeLocatedEntity(entity);
 	}
 
-	public void addLocatedEntity(LocatedEntity entity, Layer layer)
-	{
+	public void addLocatedEntity(LocatedEntity entity, Layer layer) {
 		locatedEntities_.get(layer.getValue()).add(entity);
 	}
 
-	public void removeLocatedEntity(LocatedEntity entity)
-	{
+	public void removeLocatedEntity(LocatedEntity entity) {
 		for (ArrayList<LocatedEntity> it : locatedEntities_) {
 			it.remove(entity);
 		}
 	}
 
-	public void removeLocatedEntity(LocatedEntity entity, Layer layer)
-	{
+	public void removeLocatedEntity(LocatedEntity entity, Layer layer) {
 		locatedEntities_.get(layer.getValue()).remove(entity);
 	}
 
 	private void handleCollisions(ArrayList<LocatedEntity> locatedEntities) {
-		for(int i =0; i < locatedEntities.size(); ++i)
-		{
-			for(int j =i+1; j < locatedEntities.size(); ++j)
-			{
+		for (int i = 0; i < locatedEntities.size(); ++i) {
+			for (int j = i + 1; j < locatedEntities.size(); ++j) {
 				LocatedEntity it, it2;
 				it = locatedEntities.get(i);
 				it2 = locatedEntities.get(j);
-				if(checker.isColliding(it.shape, it2.shape))
-				{
+				if (checker.isColliding(it.shape, it2.shape)) {
 					it.onCollision(it2);
 					it2.onCollision(it);
 				}

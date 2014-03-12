@@ -55,7 +55,7 @@ public class Vector2 extends Point2D.Float {
 	 *         range [-pi/2, pi/2]
 	 */
 	public float getTheta() {
-		return (float)Math.atan2(y, x);
+		return (float) Math.atan2(y, x);
 	}
 
 	/*
@@ -87,7 +87,7 @@ public class Vector2 extends Point2D.Float {
 
 	/** Sets the vector's angle, preserving its radius. */
 	public void setTheta(float t) {
-		float r = (float)getR();
+		float r = (float) getR();
 		setPolar(r, t);
 	}
 
@@ -138,32 +138,29 @@ public class Vector2 extends Point2D.Float {
 
 	/**
 	 * An alias for getR()
+	 * 
 	 * @return the length of this
 	 */
 	public float length() {
-		return (float)getR();
+		return (float) getR();
 	}
 
 	/**
 	 * Bound instance between two other vector values
+	 * 
 	 * @return the length of this
 	 */
-	public void bound(Vector2 boundMin, Vector2 boundMax)
-	{
-		if(x < boundMin.x)
-		{
+	public void bound(Vector2 boundMin, Vector2 boundMax) {
+		if (x < boundMin.x) {
 			x = boundMin.x;
 		}
-		if(y < boundMin.y)
-		{
+		if (y < boundMin.y) {
 			y = boundMin.y;
 		}
-		if(x > boundMax.x)
-		{
+		if (x > boundMax.x) {
 			x = boundMax.x;
 		}
-		if(y > boundMax.y)
-		{
+		if (y > boundMax.y) {
 			y = boundMax.y;
 		}
 	}
@@ -175,19 +172,20 @@ public class Vector2 extends Point2D.Float {
 	 */
 	public Vector2 unitVector() {
 		if (getR() != 0) {
-			return new Vector2(x / (float)getR(), y / (float)getR());
+			return new Vector2(x / (float) getR(), y / (float) getR());
 		}
-		return new Vector2(0,0);
+		return new Vector2(0, 0);
 	}
 
 	/** Polar version of the vector, with radius in x and angle in y */
 	public Vector2 toPolar() {
-		return new Vector2((float)Math.sqrt(x * x + y * y), (float)Math.atan2(y, x));
+		return new Vector2((float) Math.sqrt(x * x + y * y),
+				(float) Math.atan2(y, x));
 	}
 
-	/** Rectangular version of the vector, assuming radius in x and angle in y*/
+	/** Rectangular version of the vector, assuming radius in x and angle in y */
 	public Vector2 toRect() {
-		return new Vector2((float)(x * Math.cos(y)), (float)(x * Math.sin(y)));
+		return new Vector2((float) (x * Math.cos(y)), (float) (x * Math.sin(y)));
 	}
 
 	/** @return Standard string representation of a vector: "<x, y>" */

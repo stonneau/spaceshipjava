@@ -1,13 +1,15 @@
 package physics;
+
 import math.Vector2;
 
 /**
- * Class handling speed and acceleration variations
- * happening to a moving entity
+ * Class handling speed and acceleration variations happening to a moving entity
+ * 
  * @author stonneau
- *
+ * 
  */
-public class MovingEntity extends LocatedEntity implements gameobject.GameObject {
+public class MovingEntity extends LocatedEntity implements
+		gameobject.GameObject {
 
 	/**
 	 * Minimum Speed (in x and y ) reachable by the entity
@@ -37,47 +39,68 @@ public class MovingEntity extends LocatedEntity implements gameobject.GameObject
 	protected Vector2 currentAcceleration_;
 
 	/**
-	 * a new movingEntity located at 0,0 
-	 * @param radius radius of the bounding sphere	
-	 * @param minSpeed Minimum Speed (in x and y ) reachable by the entity
-	 * @param maxSpeed Maximum Speed (in x and y ) reachable by the entity
-	 * @param minAcc Minimum Acceleration (in x and y ) reachable by the entity
-	 * @param maxAcc Maximum Acceleration (in x and y ) reachable by the entity
+	 * a new movingEntity located at 0,0
+	 * 
+	 * @param radius
+	 *            radius of the bounding sphere
+	 * @param minSpeed
+	 *            Minimum Speed (in x and y ) reachable by the entity
+	 * @param maxSpeed
+	 *            Maximum Speed (in x and y ) reachable by the entity
+	 * @param minAcc
+	 *            Minimum Acceleration (in x and y ) reachable by the entity
+	 * @param maxAcc
+	 *            Maximum Acceleration (in x and y ) reachable by the entity
 	 */
-	public MovingEntity(float radius, Vector2 minSpeed, Vector2 maxSpeed, Vector2 minAcc, Vector2 maxAcc)
-	{
-		super(0,0,radius);
-		this.minSpeed = minSpeed; this.maxSpeed = maxSpeed;
-		this.minAcc = minAcc; this.maxAcc = maxAcc;
-		currentSpeed_ = new Vector2(0,0); currentAcceleration_ = new Vector2(0,0);
+	public MovingEntity(float radius, Vector2 minSpeed, Vector2 maxSpeed,
+			Vector2 minAcc, Vector2 maxAcc) {
+		super(0, 0, radius);
+		this.minSpeed = minSpeed;
+		this.maxSpeed = maxSpeed;
+		this.minAcc = minAcc;
+		this.maxAcc = maxAcc;
+		currentSpeed_ = new Vector2(0, 0);
+		currentAcceleration_ = new Vector2(0, 0);
 	}
 
 	/**
-	 * @param position initial position	
-	 * @param radius radius of the bounding sphere	
-	 * @param minSpeed Minimum Speed (in x and y ) reachable by the entity
-	 * @param maxSpeed Maximum Speed (in x and y ) reachable by the entity
-	 * @param minAcc Minimum Acceleration (in x and y ) reachable by the entity
-	 * @param maxAcc Maximum Acceleration (in x and y ) reachable by the entity
+	 * @param position
+	 *            initial position
+	 * @param radius
+	 *            radius of the bounding sphere
+	 * @param minSpeed
+	 *            Minimum Speed (in x and y ) reachable by the entity
+	 * @param maxSpeed
+	 *            Maximum Speed (in x and y ) reachable by the entity
+	 * @param minAcc
+	 *            Minimum Acceleration (in x and y ) reachable by the entity
+	 * @param maxAcc
+	 *            Maximum Acceleration (in x and y ) reachable by the entity
 	 */
-	public MovingEntity(Vector2 position, float radius, Vector2 minSpeed, Vector2 maxSpeed, Vector2 minAcc, Vector2 maxAcc)
-	{
+	public MovingEntity(Vector2 position, float radius, Vector2 minSpeed,
+			Vector2 maxSpeed, Vector2 minAcc, Vector2 maxAcc) {
 		super(position.x, position.y, radius);
-		this.minSpeed = minSpeed; this.maxSpeed = maxSpeed;
-		this.minAcc = minAcc; this.maxAcc = maxAcc;
-		currentSpeed_ = new Vector2(0,0); currentAcceleration_ = new Vector2(0,0);
+		this.minSpeed = minSpeed;
+		this.maxSpeed = maxSpeed;
+		this.minAcc = minAcc;
+		this.maxAcc = maxAcc;
+		currentSpeed_ = new Vector2(0, 0);
+		currentAcceleration_ = new Vector2(0, 0);
 	}
 
 	@Override
 	public void update(float msElapsed) {
 		// TODO Auto-generated method stub
-		currentSpeed_ = currentSpeed_.plus(currentAcceleration_.scalarMult(msElapsed));
+		currentSpeed_ = currentSpeed_.plus(currentAcceleration_
+				.scalarMult(msElapsed));
 		currentSpeed_.bound(minSpeed, maxSpeed);
-		this.shape.position = this.shape.position.plus(currentSpeed_.scalarMult(msElapsed));
-	}	
+		this.shape.position = this.shape.position.plus(currentSpeed_
+				.scalarMult(msElapsed));
+	}
 
 	/**
 	 * Increments the current acceleration by delta, while respecting boundaries
+	 * 
 	 * @param delta
 	 */
 	public void accelerate(Vector2 delta) {
@@ -88,7 +111,9 @@ public class MovingEntity extends LocatedEntity implements gameobject.GameObject
 
 	/**
 	 * Sets the current acceleration to a given, while respecting boundaries
-	 * @param acceleration the new value for the current acceleration
+	 * 
+	 * @param acceleration
+	 *            the new value for the current acceleration
 	 */
 	public void setAcceleration(Vector2 acceleration) {
 		// TODO Auto-generated method stub
@@ -101,8 +126,8 @@ public class MovingEntity extends LocatedEntity implements gameobject.GameObject
 	 */
 	public void stop() {
 		// TODO Auto-generated method stub
-		currentSpeed_ = new Vector2(0,0);
-		currentAcceleration_ = new Vector2(0,0);
+		currentSpeed_ = new Vector2(0, 0);
+		currentAcceleration_ = new Vector2(0, 0);
 	}
 
 	@Override
