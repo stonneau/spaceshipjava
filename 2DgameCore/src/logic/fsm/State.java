@@ -37,7 +37,6 @@ public class State
             Input input = transition.GetAcceptedInput(inputs);
             if ( input != null )
             {
-            	System.out.println("ACCEPTED INPUT " + input.type);
                 State next = transition.to;
                 this.OnLeaving(next, input);
                 next.OnEntering(this, input);
