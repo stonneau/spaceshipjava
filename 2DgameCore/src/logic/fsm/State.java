@@ -2,7 +2,7 @@ package logic.fsm;
 
 import java.util.ArrayList;
 
-public abstract class State
+public class State
 {
     protected ArrayList<Transition> transitions_;
     public final Boolean isTerminal;
@@ -37,6 +37,7 @@ public abstract class State
             Input input = transition.GetAcceptedInput(inputs);
             if ( input != null )
             {
+            	System.out.println("ACCEPTED INPUT " + input.type);
                 State next = transition.to;
                 this.OnLeaving(next, input);
                 next.OnEntering(this, input);
@@ -51,6 +52,6 @@ public abstract class State
         return this.Update(inputs);
     }
 
-    public abstract void OnEntering(State oldState, Input input);
-    public abstract void OnLeaving(State nextState, Input input);
+    public void OnEntering(State oldState, Input input){};
+    public void OnLeaving(State nextState, Input input){};
 }

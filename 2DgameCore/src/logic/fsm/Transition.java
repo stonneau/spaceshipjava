@@ -34,7 +34,7 @@ public class Transition
 
     public Input GetAcceptedInput(ArrayList<Input> inputs)
     {
-    	for (Input input : inputs_)
+    	for (Input input : inputs)
         {
             if (IsValid(input))
             {
