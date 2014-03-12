@@ -1,6 +1,7 @@
 package graphics;
 
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -12,6 +13,7 @@ public class TextureFactory {
 	
 	private TextureFactory() {
 		textures_ = new ArrayList<Texture>();
+		loaded_ = new ArrayList<String>();
 	}
 	
 	public static TextureFactory GetInstance()
@@ -20,11 +22,11 @@ public class TextureFactory {
 		return instance_;
 	}
 	
-	public int LoadTexture(String filename)
+	public int LoadTexture(String filename) throws Exception
 	{
 		if(!loaded_.contains(filename))
 		{
-			Image image = (new ImageIcon(filename)).getImage();
+			Image image = Toolkit.getDefaultToolkit().getImage(filename);;
 			textures_.add(new Texture(image));
 			loaded_.add(filename);
 			return textures_.size() -1 ;

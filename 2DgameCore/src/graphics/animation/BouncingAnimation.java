@@ -24,7 +24,7 @@ public class BouncingAnimation extends Animation
         {
             first = false;
         }
-        else if (currentFrame_ == 0 || currentFrame_ == maxFrame_)
+        else if (currentFrame_ == 0 || currentFrame_ == maxFrame)
         {
             return true;
         }

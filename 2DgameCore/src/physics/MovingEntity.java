@@ -1,6 +1,4 @@
 package physics;
-import javax.swing.text.Position;
-
 import math.Vector2;
 
 /**

@@ -16,7 +16,7 @@ public class LoopAnimation extends Animation
     protected Boolean SelectFrame()
     {
         super.SelectFrame();
-        if ( currentFrame_ >= maxFrame_)
+        if ( currentFrame_ >= maxFrame)
         {
             currentFrame_ = 0;
         }
