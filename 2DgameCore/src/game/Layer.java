@@ -1,17 +1,17 @@
-package physics.collision;
+package game;
 
-public enum CollisionLayer {
-	One(0),
+public enum Layer {
+	Background(0),
 	Two(1),
 	Three(2),
 	Four(3),
 	Five(4),
 	Six(5),
-	Seven(6),
+	HUD(6),
 	None(7);
 	
     private final int value;
-    private CollisionLayer(int value) {
+    private Layer(int value) {
         this.value = value;
     }
 

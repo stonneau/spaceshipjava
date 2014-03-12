@@ -3,8 +3,8 @@ package physics;
 import java.util.ArrayList;
 
 import physics.collision.Checker;
-import physics.collision.CollisionLayer;
 
+import game.Layer;
 import gameobject.GameObject;
 
 
@@ -24,7 +24,7 @@ public class Simulation implements GameObject{
 		checker = new Checker();
 		movingEntities_ = new ArrayList<MovingEntity>();
 		locatedEntities_ = new ArrayList<ArrayList<LocatedEntity> >();
-		for(int i = 0; i < CollisionLayer.None.getValue(); ++i)
+		for(int i = 0; i < Layer.None.getValue(); ++i)
 		{
 			locatedEntities_.add(new ArrayList<LocatedEntity>());
 		}
@@ -59,7 +59,7 @@ public class Simulation implements GameObject{
 		}
 	}
 
-	public void AddMovingEntity(MovingEntity entity, CollisionLayer layer)
+	public void AddMovingEntity(MovingEntity entity, Layer layer)
 	{
 		movingEntities_.add(entity);
 		AddLocatedEntity(entity, layer);
@@ -71,7 +71,7 @@ public class Simulation implements GameObject{
 		RemoveLocatedEntity(entity);
 	}
 	
-	public void AddLocatedEntity(LocatedEntity entity, CollisionLayer layer)
+	public void AddLocatedEntity(LocatedEntity entity, Layer layer)
 	{
 		locatedEntities_.get(layer.getValue()).add(entity);
 	}
@@ -83,7 +83,7 @@ public class Simulation implements GameObject{
 		}
 	}
 	
-	public void RemoveLocatedEntity(LocatedEntity entity, CollisionLayer layer)
+	public void RemoveLocatedEntity(LocatedEntity entity, Layer layer)
 	{
 		locatedEntities_.get(layer.getValue()).remove(entity);
 	}

@@ -1,12 +1,12 @@
 package physics;
 
 import static org.junit.Assert.*;
+import game.Layer;
 
 import math.Vector2;
 
 import org.junit.Test;
 
-import physics.collision.CollisionLayer;
 
 
 public class SimulationTest {
@@ -24,9 +24,9 @@ public class SimulationTest {
 		DummyLocatedEntity c = new DummyLocatedEntity(2, 2, 1);
 
 		Simulation sim = new Simulation();
-		sim.AddLocatedEntity(b, CollisionLayer.One);
-		sim.AddLocatedEntity(c, CollisionLayer.Two);
-		sim.AddMovingEntity(ma, CollisionLayer.One);
+		sim.AddLocatedEntity(b, Layer.Three);
+		sim.AddLocatedEntity(c, Layer.Two);
+		sim.AddMovingEntity(ma, Layer.Three);
 		
 		sim.Update(0.5f);
 		assertFalse(b.visited);		
@@ -34,7 +34,7 @@ public class SimulationTest {
 			
 		sim.Update(0.75f);
 		assertTrue(b.visited);		
-		assertFalse(c.visited);	
+		assertFalse(c.visited);
 	}
 
 }

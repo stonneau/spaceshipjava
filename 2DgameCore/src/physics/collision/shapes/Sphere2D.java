@@ -1,22 +1,18 @@
 package physics.collision.shapes;
 
-import math.Vector2;
-
 /**
  * Representation of a 2D sphere
  * used for collision checking
  * @author stonneau
  *
  */
-public class Sphere2D {
-	/**
-	 * position of the center of the sphere
-	 */
-	public Vector2 position;
+public class Sphere2D extends Shape2D {
 	/**
 	 * radius of the sphere
 	 */
 	public final float r;
+	public final float r2;
+	
 	
 	/**
 	 * Constructor for the 2d sphere
@@ -26,6 +22,14 @@ public class Sphere2D {
 	 */
 	public Sphere2D(float x, float y, float r)
 	{
-		position = new Vector2(x,y); this.r = r;
+		super(x, y);
+		this.r = r;
+		r2 = r * r;
+	}
+	
+	@Override
+	public Rectangle2D BoundingBox()
+	{
+		return new Rectangle2D(position.x, position.y, r, r);
 	}
 }

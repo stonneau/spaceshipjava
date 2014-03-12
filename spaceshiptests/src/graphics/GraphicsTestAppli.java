@@ -63,6 +63,11 @@ public class GraphicsTestAppli extends JPanel
 	   delta = 125;
 	   g.drawImage(texture_.image, delta, delta, delta + rect.width, delta + rect.height, rect.x, rect.y,
 			   rect.x + rect.width, rect.y + rect.height, this);
+	   
+	   animation_.Update(500);
+	   delta = 150;
+	   g.drawImage(texture_.image, delta, delta, delta + rect.width, delta + rect.height, rect.x, rect.y,
+			   rect.x + rect.width, rect.y + rect.height, this);
 	  }
 		
 	/**
