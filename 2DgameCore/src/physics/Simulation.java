@@ -42,23 +42,6 @@ public class Simulation implements GameObject{
 		
 	}
 	
-	private void handleCollisions(ArrayList<LocatedEntity> locatedEntities) {
-		for(int i =0; i < locatedEntities.size(); ++i)
-		{
-			for(int j =i+1; j < locatedEntities.size(); ++j)
-			{
-				LocatedEntity it, it2;
-				it = locatedEntities.get(i);
-				it2 = locatedEntities.get(j);
-				if(checker.isColliding(it.shape, it2.shape))
-				{
-					it.onCollision(it2);
-					it2.onCollision(it);
-				}
-			}
-		}
-	}
-
 	public void addMovingEntity(MovingEntity entity, Layer layer)
 	{
 		movingEntities_.add(entity);
@@ -86,5 +69,22 @@ public class Simulation implements GameObject{
 	public void removeLocatedEntity(LocatedEntity entity, Layer layer)
 	{
 		locatedEntities_.get(layer.getValue()).remove(entity);
+	}
+
+	private void handleCollisions(ArrayList<LocatedEntity> locatedEntities) {
+		for(int i =0; i < locatedEntities.size(); ++i)
+		{
+			for(int j =i+1; j < locatedEntities.size(); ++j)
+			{
+				LocatedEntity it, it2;
+				it = locatedEntities.get(i);
+				it2 = locatedEntities.get(j);
+				if(checker.isColliding(it.shape, it2.shape))
+				{
+					it.onCollision(it2);
+					it2.onCollision(it);
+				}
+			}
+		}
 	}
 }

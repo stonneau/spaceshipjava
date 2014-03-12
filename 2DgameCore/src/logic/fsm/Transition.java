@@ -20,18 +20,6 @@ public class Transition
         this.to = to;
     }
 
-    private Boolean isValid(Input input)
-    {
-        for (Input myInput : inputs_)
-        {
-            if (myInput.equals(input))
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public Input getAcceptedInput(ArrayList<Input> inputs)
     {
     	for (Input input : inputs)
@@ -42,5 +30,17 @@ public class Transition
             }
         }
         return null;
+    }
+
+    private Boolean isValid(Input input)
+    {
+        for (Input myInput : inputs_)
+        {
+            if (myInput.equals(input))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -17,8 +17,8 @@ public class Game {
 	protected InputHandler input_;
 
 	private Boolean gameRunning_;
-	final int TARGET_FPS = 60;
-	final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;  
+	private final int TARGET_FPS = 60;
+	private long OPTIMAL_TIME = 1000000000 / TARGET_FPS;  
 	
 	public Game(Gui gui,Simulation simulation, InputHandler inputHandler)
 	{

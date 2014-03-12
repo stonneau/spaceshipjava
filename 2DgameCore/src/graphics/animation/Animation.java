@@ -61,24 +61,6 @@ public class Animation
         currentFrameRate_ = 0;
         rectangle_ = new Rectangle(x,y,width,height);
     }
-
-    //returns true whether the animation is achieved
-    protected void onLastFrameReached()
-    {
-        //NOTHING
-    }
-
-    //returns true whether finalFrame is reached
-    protected Boolean selectFrame()
-    {
-        currentFrame_ = currentFrame_ + 1;
-        if ( currentFrame_ >= maxFrame )
-        {
-            currentFrameRate_ = maxFrame;
-            return true;
-        }
-        return false;
-    }
     
     public void reset()
     {
@@ -105,5 +87,23 @@ public class Animation
     public Rectangle getRectangleToDraw()
     {
         return rectangle_;
+    }
+
+    //returns true whether the animation is achieved
+    protected void onLastFrameReached()
+    {
+        //NOTHING
+    }
+
+    //returns true whether finalFrame is reached
+    protected Boolean selectFrame()
+    {
+        currentFrame_ = currentFrame_ + 1;
+        if ( currentFrame_ >= maxFrame )
+        {
+            currentFrameRate_ = maxFrame;
+            return true;
+        }
+        return false;
     }
 }
