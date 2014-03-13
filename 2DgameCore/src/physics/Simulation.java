@@ -8,7 +8,7 @@ import game.Layer;
 import gameobject.GameObject;
 
 /**
- * Main class for physics package updates all the moving entities
+ * Main class for physics package updates all the {@link LocatedEntity}
  * 
  * @author stonneau
  * 
@@ -39,26 +39,67 @@ public class Simulation implements GameObject {
 
 	}
 
+	/**
+	 * Registers a {@link MovingEntity} to the simulation
+	 * 
+	 * @param entity
+	 *            the {@link MovingEntity} to be registered.
+	 * @param layer
+	 *            The collision Layer associated to the {@link MovingEntity}.
+	 *            Collision checks for this entity will only be performed with
+	 *            objects on the same Layer.
+	 */
 	public void addMovingEntity(MovingEntity entity, Layer layer) {
 		movingEntities_.add(entity);
 		addLocatedEntity(entity, layer);
 	}
 
+	/**
+	 * Removes a registered {@link MovingEntity}.
+	 * 
+	 * @param entity
+	 *            the {@link MovingEntity} to be removed.
+	 */
 	public void removeMovingEntity(MovingEntity entity) {
 		movingEntities_.remove(entity);
 		removeLocatedEntity(entity);
 	}
 
+	/**
+	 * Registers a {@link LocatedEntity} to the simulation
+	 * 
+	 * @param entity
+	 *            the {@link LocatedEntity} to be registered.
+	 * @param layer
+	 *            The collision Layer associated to the {@link LocatedEntity}.
+	 *            Collision checks for this entity will only be performed with
+	 *            objects on the same Layer.
+	 */
 	public void addLocatedEntity(LocatedEntity entity, Layer layer) {
 		locatedEntities_.get(layer.getValue()).add(entity);
 	}
 
+	/**
+	 * Removes a registered {@link LocatedEntity}.
+	 * 
+	 * @param entity
+	 *            the {@link LocatedEntity} to be removed.
+	 */
 	public void removeLocatedEntity(LocatedEntity entity) {
 		for (ArrayList<LocatedEntity> it : locatedEntities_) {
 			it.remove(entity);
 		}
 	}
 
+	/**
+	 * Removes a registered {@link LocatedEntity}.
+	 * 
+	 * @param entity
+	 *            the {@link LocatedEntity} to be removed.
+	 * @param layer
+	 *            the CollisionLayer where the {@link LocatedEntity} was
+	 *            registered.
+	 */
 	public void removeLocatedEntity(LocatedEntity entity, Layer layer) {
 		locatedEntities_.get(layer.getValue()).remove(entity);
 	}

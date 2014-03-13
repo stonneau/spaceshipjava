@@ -102,6 +102,7 @@ public class MovingEntity extends LocatedEntity implements
 	 * Increments the current acceleration by delta, while respecting boundaries
 	 * 
 	 * @param delta
+	 *            {@link Vector2} indicating the acceleration variation.
 	 */
 	public void accelerate(Vector2 delta) {
 		// TODO Auto-generated method stub
@@ -113,7 +114,7 @@ public class MovingEntity extends LocatedEntity implements
 	 * Sets the current acceleration to a given, while respecting boundaries
 	 * 
 	 * @param acceleration
-	 *            the new value for the current acceleration
+	 *            The new {@link Vector2} value for the current acceleration.
 	 */
 	public void setAcceleration(Vector2 acceleration) {
 		// TODO Auto-generated method stub

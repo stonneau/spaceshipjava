@@ -1,5 +1,13 @@
 ﻿package graphics.animation;
 
+/**
+ * A LoopAnimation is an infinite {@link Animation} in which the first frame is
+ * connected to the last frame, so that the Animation is played over and over
+ * again.
+ * 
+ * @author stonneau
+ * 
+ */
 public class LoopAnimation extends Animation {
 	public LoopAnimation(int width, int height, int frames, int frameRate) {
 		super(width, height, frames, frameRate);

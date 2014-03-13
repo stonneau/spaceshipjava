@@ -5,8 +5,7 @@ import physics.Simulation;
 import graphics.Gui;
 
 /**
- * Main class of our engine. Contains initialization methods and calls different
- * updates and drawing methods
+ * Main class of our engine. The game loop is start with a call to start.
  * 
  * @author stonneau
  * 
@@ -20,6 +19,15 @@ public class Game {
 	private final int TARGET_FPS = 60;
 	private long OPTIMAL_TIME = 1000000000 / TARGET_FPS;
 
+	/**
+	 * 
+	 * @param gui
+	 *            the renderer for the game
+	 * @param simulation
+	 *            the object handling all moves and collisions
+	 * @param inputHandler
+	 *            layer for the handling of IO events
+	 */
 	public Game(Gui gui, Simulation simulation, InputHandler inputHandler) {
 		gameRunning_ = false;
 		gui_ = gui;
@@ -27,11 +35,18 @@ public class Game {
 		input_ = inputHandler;
 	}
 
+	/**
+	 * Starts the game loop. Initialization needs to be done before the calls
+	 */
 	public void start() {
 		gameRunning_ = true;
 		gameLoop();
 	}
 
+	/**
+	 * Game loop. Each tick, input are handled, then the simulation is updated,
+	 * and last rendering is done.
+	 */
 	void gameLoop() {
 		long lastLoopTime = System.nanoTime();
 

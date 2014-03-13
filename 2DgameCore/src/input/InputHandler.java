@@ -17,20 +17,13 @@ import java.util.ArrayList;
  */
 public class InputHandler implements KeyListener, GameObject {
 
-	public class CharacterTime {
-		public Character character;
-		public float time;
-
-		public CharacterTime(Character character) {
-			this.character = character;
-			time = 0;
-		}
-	}
-
 	private InputState state_;
 	private InputState nextState_;
 	private ArrayList<Controller> controllers_;
 
+	/**
+	 * 
+	 */
 	public InputHandler() {
 		nextState_ = new InputState();
 		state_ = new InputState();
@@ -81,10 +74,22 @@ public class InputHandler implements KeyListener, GameObject {
 		return state_;
 	}
 
+	/**
+	 * Registers a {@link Controller}. Every update the update method of the
+	 * Controller will be called with an InputState describing the key events
+	 * that happened since the last call to update.
+	 * 
+	 * @param controller
+	 */
 	public void addController(Controller controller) {
 		controllers_.add(controller);
 	}
 
+	/**
+	 * Removes a previously registered {@link Controller}.
+	 * 
+	 * @param controller
+	 */
 	public void removeController(Controller controller) {
 		controllers_.remove(controller);
 	}

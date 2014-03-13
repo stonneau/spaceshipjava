@@ -1,5 +1,13 @@
 ﻿package graphics.animation;
 
+/**
+ * A BouncingAnimation is an infinite {@link Animation} that plays the frames in
+ * a reverse order when the last frame is reached. Once the first frame has been
+ * reached again the traversal goes in the initial order, and so on.
+ * 
+ * @author stonneau
+ * 
+ */
 public class BouncingAnimation extends Animation {
 	private int delta;
 	private Boolean first = true;

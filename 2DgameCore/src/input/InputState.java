@@ -1,10 +1,18 @@
 package input;
 
-import input.InputHandler.CharacterTime;
-
 import java.util.ArrayList;
 
+/**
+ * Container for all the key events that happened in the previous tick.
+ * Distinguishes between pressed, released and typed keys. Associates a time
+ * value with the pressed and released keys, indicating for how long they have
+ * been pressed.
+ * 
+ * @author stonneau
+ * 
+ */
 public class InputState {
+
 	public InputState() {
 		pressed = new ArrayList<CharacterTime>();
 		released = new ArrayList<CharacterTime>();

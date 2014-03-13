@@ -22,9 +22,9 @@ public class Checker {
 	 * Collision checking between two Sphere2D
 	 * 
 	 * @param a
-	 *            one Sphere2D
+	 *            one {@link Sphere2D}
 	 * @param b
-	 *            another Sphere2D
+	 *            another {@link Sphere2D}
 	 * @return whether or not a and b are colliding
 	 */
 	public Boolean isColliding(Sphere2D a, Sphere2D b) {
@@ -35,12 +35,12 @@ public class Checker {
 	}
 
 	/**
-	 * Collision checking between two Rectangle2D
+	 * Collision checking between two {@link Rectangle2D}
 	 * 
-	 * @param a
-	 *            one Rectangle2D
-	 * @param b
-	 *            another Rectangle2D
+	 * @param rectA
+	 *            one {@link Rectangle2D}
+	 * @param rectB
+	 *            another {@link Rectangle2D}
 	 * @return whether or not a and b are colliding
 	 */
 	public Boolean isColliding(Rectangle2D rectA, Rectangle2D rectB) {
@@ -49,12 +49,12 @@ public class Checker {
 	}
 
 	/**
-	 * Collision checking between a Rectangle2D and a Sphere2D
+	 * Collision checking between a {@link Rectangle2D} and a {@link Sphere2D}
 	 * 
 	 * @param rect
-	 *            a Rectangle2D
+	 *            a {@link Rectangle2D}
 	 * @param circle
-	 *            a Sphere2D
+	 *            a {@link Sphere2D}
 	 * @return whether or not a and b are colliding
 	 */
 	public Boolean isColliding(Rectangle2D rect, Sphere2D circle) {
@@ -83,12 +83,12 @@ public class Checker {
 	}
 
 	/**
-	 * Collision checking between a Rectangle2D and a Sphere2D
+	 * Collision checking between a {@link Rectangle2D} and a {@link Sphere2D}
 	 * 
 	 * @param circle
-	 *            a Sphere2D
+	 *            a {@link Sphere2D}
 	 * @param rect
-	 *            a Rectangle2D
+	 *            a {@link Rectangle2D}
 	 * @return whether or not a and b are colliding
 	 */
 	public Boolean isColliding(Sphere2D circle, Rectangle2D rect) {

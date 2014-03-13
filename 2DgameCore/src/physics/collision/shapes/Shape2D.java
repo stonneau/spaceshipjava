@@ -1,7 +1,13 @@
 package physics.collision.shapes;
 
+import physics.Simulation;
 import math.Vector2;
 
+/**
+ * Base class for collision shapes in the {@link Simulation}.
+ * @author stonneau
+ *
+ */
 public abstract class Shape2D {
 
 	/**

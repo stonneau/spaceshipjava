@@ -147,8 +147,6 @@ public class Vector2 extends Point2D.Float {
 
 	/**
 	 * Bound instance between two other vector values
-	 * 
-	 * @return the length of this
 	 */
 	public void bound(Vector2 boundMin, Vector2 boundMax) {
 		if (x < boundMin.x) {
