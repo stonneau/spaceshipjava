@@ -1,4 +1,4 @@
-﻿package graphics.animation;
+package graphics.animation;
 
 /**
  * A LoopAnimation is an infinite {@link Animation} in which the first frame is

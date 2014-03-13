@@ -1,4 +1,4 @@
-﻿package graphics.animation;
+package graphics.animation;
 
 /**
  * A BouncingAnimation is an infinite {@link Animation} that plays the frames in

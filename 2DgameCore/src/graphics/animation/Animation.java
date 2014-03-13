@@ -1,4 +1,4 @@
-﻿package graphics.animation;
+package graphics.animation;
 
 import graphics.Rectangle;
 import graphics.Texture;
