@@ -1,8 +1,8 @@
 package game;
 
 import input.InputHandler;
-import physics.Simulation;
-import graphics.Gui;
+import logic.fsm.FSM;
+import logic.fsm.State;
 
 /**
  * Main class of our engine. The game loop is start with a call to start.
@@ -11,35 +11,28 @@ import graphics.Gui;
  * 
  */
 public class Game {
-	protected Gui gui_;
-	protected Simulation simulation_;
-	protected InputHandler input_;
+	private FSM gameFSM_;
+	private InputHandler inputHandler_;
 
-	private Boolean gameRunning_;
 	private final int TARGET_FPS = 60;
 	private long OPTIMAL_TIME = 1000000000 / TARGET_FPS;
 
 	/**
 	 * 
-	 * @param gui
-	 *            the renderer for the game
-	 * @param simulation
-	 *            the object handling all moves and collisions
-	 * @param inputHandler
-	 *            layer for the handling of IO events
+	 * @param gameFsm
+	 *            {@link FSM} Handling the game states. If a terminal
+	 *            {@link State} is reached the game stops.
 	 */
-	public Game(Gui gui, Simulation simulation, InputHandler inputHandler) {
-		gameRunning_ = false;
-		gui_ = gui;
-		simulation_ = simulation;
-		input_ = inputHandler;
+	public Game(FSM gameFsm) {
+		gameFSM_ = gameFsm;
+		inputHandler_ = new InputHandler();
 	}
 
 	/**
-	 * Starts the game loop. Initialization needs to be done before the calls
+	 * Starts the game loop. The only way to get out of the main loop is to
+	 * reach a terminal {@link State}
 	 */
 	public void start() {
-		gameRunning_ = true;
 		gameLoop();
 	}
 
@@ -51,7 +44,7 @@ public class Game {
 		long lastLoopTime = System.nanoTime();
 
 		// keep looping round til the game ends
-		while (gameRunning_) {
+		while (!gameFSM_.getCurrentState().isTerminal) {
 			// work out how long its been since the last update, this
 			// will be used to calculate how far the entities should
 			// move this loop
@@ -59,12 +52,8 @@ public class Game {
 			long updateLength = now - lastLoopTime;
 			lastLoopTime = now;
 			float delta = (float) (updateLength / ((double) OPTIMAL_TIME));
-
-			// retrieve input data
-			// update the game logic
-			simulation_.update(delta);
-			// draw everything
-			gui_.Draw(delta);
+			inputHandler_.update(delta);
+			gameFSM_.update(delta);
 
 			// we want each frame to take 10 milliseconds, to do this
 			// we've recorded when we started the frame. We add 10 milliseconds

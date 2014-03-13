@@ -42,22 +42,27 @@ public class InputHandler implements KeyListener, GameObject {
 
 	@Override
 	public void keyReleased(KeyEvent event) {
-		nextState_.pressed.add(new CharacterTime(event.getKeyChar()));
+		nextState_.released.add(new CharacterTime(event.getKeyChar()));
 	}
 
 	@Override
 	public void update(float msElapsed) {
 		for (CharacterTime chart : nextState_.pressed) {
+			chart.time = msElapsed;
 			for (CharacterTime previous : state_.pressed) {
+				System.out.println(chart.character);
+				System.out.println(previous.character);
 				if (chart.character.equals(previous.character)) {
 					chart.time += previous.time;
+					break;
 				}
 			}
 		}
 		for (CharacterTime chart : nextState_.released) {
 			for (CharacterTime previous : state_.pressed) {
 				if (chart.character.equals(previous.character)) {
-					chart.time += previous.time;
+					chart.time = previous.time+ msElapsed;
+					break;
 				}
 			}
 		}

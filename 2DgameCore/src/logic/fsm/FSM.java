@@ -43,12 +43,18 @@ public class FSM {
 	 * one call to update. A maximum of one {@link Transition} can be performed
 	 * for a call to update.
 	 * 
+	 * @param msElapsed
+	 *            time elapsed since last call to update
 	 * @return true if a {@link Transition} was performed.
 	 */
-	public Boolean update() {
+	public Boolean update(float msElapsed) {
 		State old = currentState_;
-		currentState_ = currentState_.update(currentInputs_);
+		currentState_ = currentState_.update(currentInputs_, msElapsed);
 		currentInputs_.clear();
 		return old != currentState_;
+	}
+
+	public State getCurrentState() {
+		return currentState_;
 	}
 }

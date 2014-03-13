@@ -58,11 +58,13 @@ public class State {
 	 * 
 	 * @param inputs
 	 *            the current {@link Input}.
+	 * @param msElapsed
+	 *            time elapsed since last call to update
 	 * @return The result of the Transition evaluations. Either the State the
 	 *         that has been reached thanks to a Transition, or the current
 	 *         State if no Transition could be performed.
 	 */
-	public State update(ArrayList<Input> inputs) {
+	public State update(ArrayList<Input> inputs, float msElapsed) {
 		for (Transition transition : transitions_) {
 			Input input = transition.getAcceptedInput(inputs);
 			if (input != null) {
@@ -93,7 +95,8 @@ public class State {
 	 * performed.
 	 * 
 	 * @param nextState
-	 *            The State that will be reached thanks to the {@link Transition}.
+	 *            The State that will be reached thanks to the
+	 *            {@link Transition}.
 	 * @param input
 	 *            The input that allowed the {@link Transition} to be performed.
 	 */

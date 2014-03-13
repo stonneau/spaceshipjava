@@ -27,30 +27,30 @@ public class FSMTest {
 		logic.fsm.FSM fsm = new logic.fsm.FSM(a);
 		assertFalse(a.entered);
 		
-		fsm.update();
+		fsm.update(0);
 		assertFalse(a.exited);
 		fsm.pushInput(new Input(0));
-		fsm.update();
+		fsm.update(0);
 		assertTrue(a.exited);
 		assertTrue(b.entered);
 		
 
 		fsm.pushInput(new Input(1));
-		fsm.update();
+		fsm.update(0);
 		assertFalse(a.entered);
 		assertFalse(b.exited);
 
 		fsm.pushInput(new Input(2));
-		fsm.update();
+		fsm.update(0);
 		assertTrue(a.entered);
 		assertTrue(b.exited);
 		
 
-		fsm.update();
+		fsm.update(0);
 		assertFalse(c.entered);
 		
 		fsm.pushInput(new Input(1));
-		fsm.update();
+		fsm.update(0);
 		assertTrue(c.entered);
 	}
 

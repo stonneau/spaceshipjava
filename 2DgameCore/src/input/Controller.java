@@ -73,14 +73,6 @@ public class Controller {
 	}
 
 	/**
-	 * 
-	 * @return the current {@link InputState} of the {@link Controller}.
-	 */
-	public InputState getCurrentState() {
-		return currentState_;
-	}
-
-	/**
 	 * Registers a {@link ControllerListener}, called at every update in case of
 	 * a key event.
 	 * 
@@ -107,7 +99,7 @@ public class Controller {
 	 * @param state
 	 *            the updated InputState.
 	 */
-	void update(InputState state) {
+	synchronized void update(final InputState state) {
 		currentState_ = state;
 		for (CharacterTime characterTime : state.pressed) {
 			Integer value = values.get(characterTime.character);
